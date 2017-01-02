@@ -1,9 +1,13 @@
+branches:
+  only:
+    - master
+
 script:
 - |
-  if [[ $TRAVIS_BRANCH == "master" ]]; then
-    bash merge.sh
-  else
+  if [[ $TRAVIS_PULL_REQUEST != "false" ]]; then
     bash pullrequest.sh
+  else
+    bash merge.sh
   fi
 
 env:
