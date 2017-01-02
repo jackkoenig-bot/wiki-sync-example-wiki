@@ -1,6 +1,6 @@
 script:
 - |
-  if [[ $TRAVIS_BRANCH == "master" ]]; then
+  if [[ $TRAVIS_BRANCH == "super" ]]; then
     bash merge.sh
   else
     bash pullrequest.sh
