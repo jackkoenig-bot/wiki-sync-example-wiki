@@ -1,6 +1,5 @@
 script:
 - |
-  echo $TRAVIS_BRANCH
   if [[ $TRAVIS_BRANCH == "master" ]]; then
     bash merge.sh
   else
