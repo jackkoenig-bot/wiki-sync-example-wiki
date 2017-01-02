@@ -1,0 +1,16 @@
+script:
+- |
+  git config user.name "jackkoenig-bot"
+  git config user.email "jack.koenig3.bot@gmail.com"
+  git remote remove origin
+  git remote add origin https://$GITHUB_API_KEY@github.com/jackkoenig-bot/wiki-sync-example-wiki.git > /dev/null 2>&1
+  git remote add upstream https://$GITHUB_API_KEY@github.com/jackkoenig-bot/wiki-sync-example.wiki.git > /dev/null 2>&1
+  git fetch origin
+  git fetch upstream
+  git merge upstream/master --no-edit
+  git push origin HEAD:master > /dev/null 2>&1
+  git push upstream HEAD:master > /dev/null 2>&1
+
+env:
+  matrix:
+    secure: DEsYk5jySklIwXqDjsHS3+24m4v9c02ix6pjnNX3aGFEtY7eWEMDGvJ5nCU2ieI5NKBG9dgckV/JUp0qODJPBRXDT1pDzfP1gXcuuYKdFgqJq+NLhuW9Fn2Z8lfUMQ4IQSnhxW6T4IB0et6/mMD9wE/xqGZvp6kIM47+5/soevUatZDpAnt5A5nAohDS9ET07f+pZz1oraonUXQWe28sjsuA5b2KP6cgGkEkbvXg3AJw0F/dmY6hkbHszsk5OmxVjyaRcKOLnPngLNDYCZd0N/xbIVrHV0tFFnEjLlOG1Okj5lfn36EdMHy566txdI/tzQSDfbfI77l8ua4g7YzomksFAbXAi02qa2ZteRkLeojMA7NMUxw/tiM3q3oy3dJEw58FVjJGSq+t3CwMC/FO/cSnlbaxYLFcctIIsCP5XzlGriILSjAriNU9vcNjTyNdZgZ8OEMZ1IKtSAUU/uOjb+x1qXQP5tTdNLKrg1EGJKH2IaLd1Gx60JwgCLZBipT219xlaZi7MGMJYooK5fQueSc83QizGuc6fpHFkqiaL+N4iS4Ee4s8AFwKsn97NfwqkW88cWeoH3CbGGb/PQkqD/XGyV/aw39XnQz73wuRDjsNgRu/cRpr8TLrYZ8dkEAccCG0DYVKHtqvPUlXGzWgR5cswpWICdciiYA+z1nRWKI=
